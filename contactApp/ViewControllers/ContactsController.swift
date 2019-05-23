@@ -19,23 +19,35 @@ class ContactsController: UITableViewController {
 
 }
 
+// MARK: - Table view data source
 extension ContactsController {
-    // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.contactCount
+        return viewModel.titleCount
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return viewModel.noOfContacts(for: section)
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .value2, reuseIdentifier: "cellId")
+        let contact = viewModel.getContact(for: indexPath.section, at: indexPath.row)
+        cell.detailTextLabel?.text = contact?.firstName
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.getTitle(at: section)
     }
 
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return viewModel.contactTitles
+    }
 }
 
 extension ContactsController: ContactsViewModelDelegate {
     
     func reloadData() {
-        
+        tableView.reloadData()
     }
 }

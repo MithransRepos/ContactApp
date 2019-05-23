@@ -15,7 +15,12 @@ protocol ContactsViewModelDelegate {
 class ContactsViewModel {
     
     private let networkManager: ContactNetworkManager = ContactNetworkManager()
-    private var contacts: [Contact] = []
+    private var contactDictionary: [String: [Contact]] = [:]
+    var contactTitles: [String] = [] {
+        didSet {
+            self.delegate?.reloadData()
+        }
+    }
     var delegate: ContactsViewModelDelegate?
     
     init() {
@@ -27,21 +32,50 @@ class ContactsViewModel {
             switch result{
             case .success(let contacts):
                 guard let contacts = contacts else { return }
-                self.contacts = contacts
+                self.indexContacts(contacts: contacts)
             case .failure(_):
                 break
             }
         }
     }
     
+    private func indexContacts(contacts: [Contact]) {
+        for contact in contacts {
+            guard let firstLetter = contact.firstName.first?.uppercased() else { return }
+            if var contacts: [Contact] = contactDictionary[firstLetter] {
+                contacts.append(contact)
+                contactDictionary[firstLetter] = contacts
+            }else {
+                contactDictionary[firstLetter] = [contact]
+            }
+        }
+        contactTitles = contactDictionary.keys.sorted()
+    }
+    
+    private func getContacts(for section: Int) -> [Contact]? {
+        let title = contactTitles[section]
+        guard let contacts = contactDictionary[title] else { return nil }
+        return contacts
+    }
+    
 }
 extension ContactsViewModel {
     
-    var contactCount:  Int {
-        return contacts.count
+    
+    var titleCount: Int {
+        return contactTitles.count
     }
     
-    func getContact(at index: Int) -> Contact{
+    func getTitle(at index: Int) -> String{
+        return contactTitles[index]
+    }
+    
+    func noOfContacts(for section: Int) -> Int{
+        return getContacts(for: section)?.count ?? 0
+    }
+    
+    func getContact(for section: Int, at index: Int) -> Contact? {
+        guard let contacts = getContacts(for: section) else { return nil }
         return contacts[index]
     }
 }
