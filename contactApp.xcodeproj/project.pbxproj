@@ -24,6 +24,9 @@
 		907CED88229643B400CEACF8 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CED87229643B400CEACF8 /* EndPointType.swift */; };
 		907CED8A229643EE00CEACF8 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CED89229643EE00CEACF8 /* NetworkLogger.swift */; };
 		907CED8C229644AE00CEACF8 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CED8B229644AE00CEACF8 /* NetworkHelper.swift */; };
+		907CED8E2296474A00CEACF8 /* ContactEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CED8D2296474A00CEACF8 /* ContactEndPoint.swift */; };
+		907CED90229647BF00CEACF8 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CED8F229647BF00CEACF8 /* NetworkConstants.swift */; };
+		907CED922296488600CEACF8 /* ContactNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CED912296488600CEACF8 /* ContactNetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		907CED87229643B400CEACF8 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		907CED89229643EE00CEACF8 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		907CED8B229644AE00CEACF8 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		907CED8D2296474A00CEACF8 /* ContactEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEndPoint.swift; sourceTree = "<group>"; };
+		907CED8F229647BF00CEACF8 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		907CED912296488600CEACF8 /* ContactNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +176,7 @@
 			children = (
 				907CED7722963F5900CEACF8 /* Helper */,
 				907CED7622963F1100CEACF8 /* Service */,
-				907CED7522963EEA00CEACF8 /* Endpoint */,
+				907CED7522963EEA00CEACF8 /* EndPoint */,
 				907CED7422963EB900CEACF8 /* Manager */,
 				907CED7322963EA500CEACF8 /* Constants */,
 				907CED7222963E9800CEACF8 /* Encoding */,
@@ -212,6 +218,7 @@
 		907CED7322963EA500CEACF8 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				907CED8F229647BF00CEACF8 /* NetworkConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -219,15 +226,17 @@
 		907CED7422963EB900CEACF8 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				907CED912296488600CEACF8 /* ContactNetworkManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		907CED7522963EEA00CEACF8 /* Endpoint */ = {
+		907CED7522963EEA00CEACF8 /* EndPoint */ = {
 			isa = PBXGroup;
 			children = (
+				907CED8D2296474A00CEACF8 /* ContactEndPoint.swift */,
 			);
-			path = Endpoint;
+			path = EndPoint;
 			sourceTree = "<group>";
 		};
 		907CED7622963F1100CEACF8 /* Service */ = {
@@ -382,16 +391,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				907CED90229647BF00CEACF8 /* NetworkConstants.swift in Sources */,
 				907CED88229643B400CEACF8 /* EndPointType.swift in Sources */,
 				907CED81229641FE00CEACF8 /* HTTPTask.swift in Sources */,
 				907CED7D229640D500CEACF8 /* JSONParameterEncoder.swift in Sources */,
 				907CED7B229640C200CEACF8 /* URLParameterEncoder.swift in Sources */,
 				907CED8C229644AE00CEACF8 /* NetworkHelper.swift in Sources */,
 				907CED792296408C00CEACF8 /* ParameterEncoding.swift in Sources */,
+				907CED922296488600CEACF8 /* ContactNetworkManager.swift in Sources */,
 				907CED862296433D00CEACF8 /* Router.swift in Sources */,
 				907CED842296427200CEACF8 /* HTTPMethod.swift in Sources */,
 				907CED6922963BF400CEACF8 /* ContactsController.swift in Sources */,
 				90747AEF2295A88400C068E3 /* AppDelegate.swift in Sources */,
+				907CED8E2296474A00CEACF8 /* ContactEndPoint.swift in Sources */,
 				907CED7F229641DD00CEACF8 /* NetworkRouter.swift in Sources */,
 				907CED8A229643EE00CEACF8 /* NetworkLogger.swift in Sources */,
 			);
