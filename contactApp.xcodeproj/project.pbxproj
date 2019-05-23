@@ -28,6 +28,7 @@
 		907CED90229647BF00CEACF8 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CED8F229647BF00CEACF8 /* NetworkConstants.swift */; };
 		907CED922296488600CEACF8 /* ContactNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CED912296488600CEACF8 /* ContactNetworkManager.swift */; };
 		907CED952296517A00CEACF8 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CED942296517A00CEACF8 /* Contact.swift */; };
+		90C03D7422969BA30037C4DD /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D7322969BA30037C4DD /* ContactsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		907CED8F229647BF00CEACF8 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		907CED912296488600CEACF8 /* ContactNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNetworkManager.swift; sourceTree = "<group>"; };
 		907CED942296517A00CEACF8 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		90C03D7322969BA30037C4DD /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 		907CED6A22963C1E00CEACF8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				90C03D7322969BA30037C4DD /* ContactsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				907CED862296433D00CEACF8 /* Router.swift in Sources */,
 				907CED842296427200CEACF8 /* HTTPMethod.swift in Sources */,
 				907CED6922963BF400CEACF8 /* ContactsController.swift in Sources */,
+				90C03D7422969BA30037C4DD /* ContactsViewModel.swift in Sources */,
 				90747AEF2295A88400C068E3 /* AppDelegate.swift in Sources */,
 				907CED8E2296474A00CEACF8 /* ContactEndPoint.swift in Sources */,
 				907CED7F229641DD00CEACF8 /* NetworkRouter.swift in Sources */,
@@ -593,7 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U78Q3HGKK7;
+				DEVELOPMENT_TEAM = QRWQ2DBBTX;
 				INFOPLIST_FILE = contactApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -611,7 +615,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U78Q3HGKK7;
+				DEVELOPMENT_TEAM = QRWQ2DBBTX;
 				INFOPLIST_FILE = contactApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

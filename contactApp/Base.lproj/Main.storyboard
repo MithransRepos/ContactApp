@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-436" y="119"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Contacts Controller-->
         <scene sceneID="2H4-BS-DPZ">
             <objects>
-                <tableViewController storyboardIdentifier="ContactsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uqk-s4-bdZ" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ContactsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uqk-s4-bdZ" customClass="ContactsController" customModule="contactApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ii9-At-xf3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
