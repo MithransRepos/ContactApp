@@ -34,6 +34,10 @@ extension ContactsController {
         return viewModel.noOfContacts(for: section)
     }
 
+    override func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
+        return 64
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ContactCell = tableView.dequeueReusableCell(for: indexPath) as ContactCell
         if let contact = viewModel.getContact(for: indexPath.section, at: indexPath.row) {
