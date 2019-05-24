@@ -17,6 +17,7 @@ class ContactsController: UITableViewController {
     }
 
     private func setupController() {
+        setTitle(title: "Contact")
         viewModel.delegate = self
         tableView.sectionIndexColor = UIColor.lightGray
         tableView.register(ContactCell.self)
@@ -52,6 +53,13 @@ extension ContactsController {
 
     override func sectionIndexTitles(for _: UITableView) -> [String]? {
         return viewModel.contactTitles
+    }
+
+    override func tableView(_: UITableView, willDisplayHeaderView view: UIView, forSection _: Int) {
+        view.tintColor = .headerGrey
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = .appBlack
+        header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
     }
 }
 
