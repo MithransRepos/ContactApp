@@ -25,7 +25,7 @@ struct Contact: Codable, Equatable {
     }
 
     static func < (lhs: Contact, rhs: Contact) -> Bool {
-        return lhs.firstName < rhs.firstName
+        return lhs.firstName.capitalized < rhs.firstName.capitalized
     }
 }
 
