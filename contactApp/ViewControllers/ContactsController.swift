@@ -35,6 +35,17 @@ extension ContactsController {
         return viewModel.noOfContacts(for: section)
     }
 
+    override func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.getTitle(at: section)
+    }
+
+    override func tableView(_: UITableView, willDisplayHeaderView view: UIView, forSection _: Int) {
+        view.tintColor = .headerGrey
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = .appBlack
+        header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+    }
+
     override func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         return 64
     }
@@ -47,19 +58,8 @@ extension ContactsController {
         return cell
     }
 
-    override func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.getTitle(at: section)
-    }
-
     override func sectionIndexTitles(for _: UITableView) -> [String]? {
         return viewModel.contactTitles
-    }
-
-    override func tableView(_: UITableView, willDisplayHeaderView view: UIView, forSection _: Int) {
-        view.tintColor = .headerGrey
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = .appBlack
-        header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
     }
 }
 
