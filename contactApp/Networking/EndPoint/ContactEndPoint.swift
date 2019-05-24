@@ -22,16 +22,16 @@ extension ContactApi: EndPointType {
         }
         return url
     }
-    
+
     var path: String {
         switch self {
         case .getContacts:
             return "/contacts.json"
-        case .getContact(let id), .editContact(let id, _):
+        case let .getContact(id), .editContact(let id, _):
             return "/contacts/{\(id)}.json"
         case .addContact:
             return "/contacts.json"
-        case .deleteContact(let id):
+        case let .deleteContact(id):
             return "/contacts/\(id).json"
         }
     }
@@ -55,15 +55,15 @@ extension ContactApi: EndPointType {
             return .requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: nil)
         case .getContact:
             return .requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: nil)
-        case .addContact(let params):
+        case let .addContact(params):
             return .requestParameters(bodyParameters: params, bodyEncoding: .jsonEncoding, urlParameters: nil)
-        case .editContact(_, let params):
+        case let .editContact(_, params):
             return .requestParameters(bodyParameters: params, bodyEncoding: .jsonEncoding, urlParameters: nil)
         case .deleteContact:
             return .requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: nil)
         }
     }
-    
+
     var headers: HTTPHeaders? {
         return nil
     }

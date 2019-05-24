@@ -31,6 +31,8 @@
 		90C03D7422969BA30037C4DD /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D7322969BA30037C4DD /* ContactsViewModel.swift */; };
 		90C03D7B2296A35E0037C4DD /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D792296A35E0037C4DD /* ContactCell.swift */; };
 		90C03D7C2296A35E0037C4DD /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90C03D7A2296A35E0037C4DD /* ContactCell.xib */; };
+		90C03D7E2297DEFB0037C4DD /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D7D2297DEFB0037C4DD /* UITableViewExtension.swift */; };
+		90C03D802297E41B0037C4DD /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D7F2297E41B0037C4DD /* UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		90C03D7322969BA30037C4DD /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		90C03D792296A35E0037C4DD /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		90C03D7A2296A35E0037C4DD /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		90C03D7D2297DEFB0037C4DD /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		90C03D7F2297E41B0037C4DD /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +201,8 @@
 		907CED6C22963C3400CEACF8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				90C03D7D2297DEFB0037C4DD /* UITableViewExtension.swift */,
+				90C03D7F2297E41B0037C4DD /* UIImageViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -416,11 +422,13 @@
 				907CED90229647BF00CEACF8 /* NetworkConstants.swift in Sources */,
 				907CED88229643B400CEACF8 /* EndPointType.swift in Sources */,
 				907CED81229641FE00CEACF8 /* HTTPTask.swift in Sources */,
+				90C03D7E2297DEFB0037C4DD /* UITableViewExtension.swift in Sources */,
 				907CED7D229640D500CEACF8 /* JSONParameterEncoder.swift in Sources */,
 				907CED952296517A00CEACF8 /* Contact.swift in Sources */,
 				907CED7B229640C200CEACF8 /* URLParameterEncoder.swift in Sources */,
 				907CED8C229644AE00CEACF8 /* NetworkHelper.swift in Sources */,
 				907CED792296408C00CEACF8 /* ParameterEncoding.swift in Sources */,
+				90C03D802297E41B0037C4DD /* UIImageViewExtension.swift in Sources */,
 				907CED922296488600CEACF8 /* ContactNetworkManager.swift in Sources */,
 				907CED862296433D00CEACF8 /* Router.swift in Sources */,
 				907CED842296427200CEACF8 /* HTTPMethod.swift in Sources */,

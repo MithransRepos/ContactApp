@@ -22,7 +22,7 @@ enum APIError: Error {
     case jsonParsingFailure
     case serverErrorResponse(message: String)
     case emptyCache
-    
+
     var localizedDescription: String {
         switch self {
         case .requestFailed: return "Something went wrong"

@@ -9,12 +9,13 @@
 import Foundation
 
 // MARK: - Contact
+
 struct Contact: Codable {
     let id: Int
     let firstName, lastName, profilePic: String
     let favorite: Bool
     let url: String
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case firstName = "first_name"

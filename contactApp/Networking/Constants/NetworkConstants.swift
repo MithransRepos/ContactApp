@@ -12,9 +12,8 @@ struct NetworkConstants {
     static var BaseURL: String {
         return "http://gojek-contacts-app.herokuapp.com"
     }
-    
+
     static var version1: String {
         return "v1.0"
     }
-    
 }

@@ -9,16 +9,17 @@
 import UIKit
 
 class ContactCell: UITableViewCell {
+    @IBOutlet var avatarImageView: UIImageView!
+    @IBOutlet var starImageView: UIImageView!
+    @IBOutlet var nameLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setupCell(contact: Contact) {
+        nameLabel.text = contact.firstName
     }
-    
 }
+
+extension ContactCell: NibLoadableView, ReusableView {}

@@ -12,15 +12,52 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="71" id="KGk-i7-Jjw" customClass="ContactCell" customModule="contactApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ContactCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="57" id="KGk-i7-Jjw" customClass="ContactCell" customModule="contactApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="70.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="63.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Lz-Ma-rFk">
+                        <rect key="frame" x="16" y="12" width="40" height="39.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="a79-Z8-TcP"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qp9-ml-Eh8">
+                        <rect key="frame" x="72" y="24" width="176" height="15.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tRC-CT-4km">
+                        <rect key="frame" x="264" y="20" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="jTh-se-gVv"/>
+                            <constraint firstAttribute="height" constant="24" id="umj-uA-xLP"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5Lz-Ma-rFk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="3So-FM-Zy3"/>
+                    <constraint firstItem="tRC-CT-4km" firstAttribute="leading" secondItem="Qp9-ml-Eh8" secondAttribute="trailing" constant="16" id="3k7-sI-NXy"/>
+                    <constraint firstAttribute="bottom" secondItem="Qp9-ml-Eh8" secondAttribute="bottom" constant="24" id="BBx-of-jex"/>
+                    <constraint firstItem="Qp9-ml-Eh8" firstAttribute="leading" secondItem="5Lz-Ma-rFk" secondAttribute="trailing" constant="16" id="Wl8-y7-lz8"/>
+                    <constraint firstItem="5Lz-Ma-rFk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="auM-vO-0m7"/>
+                    <constraint firstItem="Qp9-ml-Eh8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="g3K-X1-vT4"/>
+                    <constraint firstAttribute="trailing" secondItem="tRC-CT-4km" secondAttribute="trailing" constant="32" id="h07-Xy-3Nj"/>
+                    <constraint firstItem="tRC-CT-4km" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uXI-TH-8PA"/>
+                    <constraint firstAttribute="bottom" secondItem="5Lz-Ma-rFk" secondAttribute="bottom" constant="12" id="wsp-hb-Qf9"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="142.02898550724638" y="141.62946428571428"/>
+            <connections>
+                <outlet property="avatarImageView" destination="5Lz-Ma-rFk" id="Lk4-RJ-93o"/>
+                <outlet property="nameLabel" destination="Qp9-ml-Eh8" id="NC4-fD-5Vb"/>
+                <outlet property="starImageView" destination="tRC-CT-4km" id="4sr-yF-QAg"/>
+            </connections>
+            <point key="canvasLocation" x="140.57971014492756" y="139.28571428571428"/>
         </tableViewCell>
     </objects>
 </document>
