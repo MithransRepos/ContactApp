@@ -9,13 +9,6 @@
 import Foundation
 
 extension String {
-    func getGoJekImageUrl() -> String {
-        if self == "/images/missing.png" {
-            return "http://gojek-contacts-app.herokuapp.com\(self)"
-        }
-        return self
-    }
-
     func contains(find: String) -> Bool {
         return range(of: find) != nil
     }

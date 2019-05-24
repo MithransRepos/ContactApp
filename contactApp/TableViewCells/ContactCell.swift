@@ -20,7 +20,7 @@ class ContactCell: UITableViewCell {
     func setupCell(contact: Contact) {
         nameLabel.text = contact.firstName
         avatarImageView.setRounded()
-        avatarImageView.setImage(from: contact.profilePic.getGoJekImageUrl())
+        avatarImageView.setImage(from: contact.profilePicUrl)
         starImageView.image = contact.favorite ? .starImage : nil
     }
 }

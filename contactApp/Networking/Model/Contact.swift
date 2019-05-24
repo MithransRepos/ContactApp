@@ -33,4 +33,11 @@ extension Contact {
     var fullName: String {
         return "\(firstName) \(lastName)"
     }
+
+    var profilePicUrl: String {
+        if profilePic == "/images/missing.png" {
+            return "http://gojek-contacts-app.herokuapp.com\(profilePic)"
+        }
+        return profilePic
+    }
 }
