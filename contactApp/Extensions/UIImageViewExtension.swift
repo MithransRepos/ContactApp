@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    func setImage(from url: URL, withPlaceholder placeholder: UIImage? = nil) {
+    func setImage(from url: String, withPlaceholder placeholder: UIImage? = nil) {
+        guard let url = URL(string: url) else { return }
         image = placeholder
         URLSession.shared.dataTask(with: url) { data, _, _ in
             if let data = data {
