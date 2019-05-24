@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Contact
 
-struct Contact: Codable {
+struct Contact: Codable, Equatable {
     let id: Int
     let firstName, lastName, profilePic: String
     let favorite: Bool
@@ -22,5 +22,15 @@ struct Contact: Codable {
         case lastName = "last_name"
         case profilePic = "profile_pic"
         case favorite, url
+    }
+
+    static func < (lhs: Contact, rhs: Contact) -> Bool {
+        return lhs.firstName < rhs.firstName
+    }
+}
+
+extension Contact {
+    var fullName: String {
+        return "\(firstName) \(lastName)"
     }
 }

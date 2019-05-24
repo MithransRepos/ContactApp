@@ -28,7 +28,8 @@ class ContactsViewModel {
         for contact in contacts {
             guard let firstLetter = contact.firstName.first?.uppercased() else { return }
             if var contacts: [Contact] = contactDictionary[firstLetter] {
-                contacts.append(contact)
+                let index = contacts.insertionIndexOf(elem: contact) { $0 < $1 } // Or: myArray.indexOf(c, <)
+                contacts.insert(contact, at: index)
                 contactDictionary[firstLetter] = contacts
             } else {
                 contactDictionary[firstLetter] = [contact]

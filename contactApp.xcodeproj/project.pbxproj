@@ -34,7 +34,7 @@
 		90C03D7E2297DEFB0037C4DD /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D7D2297DEFB0037C4DD /* UITableViewExtension.swift */; };
 		90C03D802297E41B0037C4DD /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D7F2297E41B0037C4DD /* UIImageViewExtension.swift */; };
 		90C03D822297E5960037C4DD /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D812297E5960037C4DD /* UIViewExtension.swift */; };
-		90C03D842297E7CB0037C4DD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D832297E7CB0037C4DD /* StringExtension.swift */; };
+		90C03D842297E7CB0037C4DD /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D832297E7CB0037C4DD /* Extension.swift */; };
 		90C03D862297F6480037C4DD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D852297F6480037C4DD /* UIColorExtension.swift */; };
 		90C03D882297FB580037C4DD /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D872297FB580037C4DD /* UIViewControllerExtension.swift */; };
 		90C03D8A22981B830037C4DD /* BlurLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D8922981B830037C4DD /* BlurLoader.swift */; };
@@ -91,7 +91,7 @@
 		90C03D7D2297DEFB0037C4DD /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		90C03D7F2297E41B0037C4DD /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		90C03D812297E5960037C4DD /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		90C03D832297E7CB0037C4DD /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		90C03D832297E7CB0037C4DD /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		90C03D852297F6480037C4DD /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		90C03D872297FB580037C4DD /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		90C03D8922981B830037C4DD /* BlurLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurLoader.swift; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 				90C03D7D2297DEFB0037C4DD /* UITableViewExtension.swift */,
 				90C03D7F2297E41B0037C4DD /* UIImageViewExtension.swift */,
 				90C03D812297E5960037C4DD /* UIViewExtension.swift */,
-				90C03D832297E7CB0037C4DD /* StringExtension.swift */,
+				90C03D832297E7CB0037C4DD /* Extension.swift */,
 				90C03D852297F6480037C4DD /* UIColorExtension.swift */,
 				90C03D872297FB580037C4DD /* UIViewControllerExtension.swift */,
 			);
@@ -456,7 +456,7 @@
 				90C03D822297E5960037C4DD /* UIViewExtension.swift in Sources */,
 				90C03D882297FB580037C4DD /* UIViewControllerExtension.swift in Sources */,
 				907CED7F229641DD00CEACF8 /* NetworkRouter.swift in Sources */,
-				90C03D842297E7CB0037C4DD /* StringExtension.swift in Sources */,
+				90C03D842297E7CB0037C4DD /* Extension.swift in Sources */,
 				907CED8A229643EE00CEACF8 /* NetworkLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
