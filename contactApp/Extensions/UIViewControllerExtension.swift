@@ -14,4 +14,15 @@ extension UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.appBlack, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .semibold)]
         title = "Contact"
     }
+
+    func showLoader() {
+        let blurLoader = BlurLoader(frame: view.frame)
+        view.addSubview(blurLoader)
+    }
+
+    func hideLoader() {
+        if let blurLoader = self.view.subviews.first(where: { $0 is BlurLoader }) {
+            blurLoader.removeFromSuperview()
+        }
+    }
 }

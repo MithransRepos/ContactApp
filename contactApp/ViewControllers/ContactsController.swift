@@ -18,17 +18,25 @@ class ContactsController: UITableViewController {
 
     private func setupController() {
         setTitle(title: "Contact")
+        setupAddNavigationButton()
+        setupTableView()
         viewModel.delegate = self
+        viewModel.getContacts()
+    }
+
+    private func setupTableView() {
         tableView.sectionIndexColor = UIColor.lightGray
         tableView.register(ContactCell.self)
+        tableView.tableFooterView = UIView()
+    }
+
+    private func setupAddNavigationButton() {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContact))
         barButtonItem.tintColor = .appgreen
-        self.navigationItem.rightBarButtonItem = barButtonItem
+        navigationItem.rightBarButtonItem = barButtonItem
     }
-    
-    @objc private func addContact() {
-        
-    }
+
+    @objc private func addContact() {}
 }
 
 // MARK: - Table view data source
@@ -71,6 +79,10 @@ extension ContactsController {
 }
 
 extension ContactsController: ContactsViewModelDelegate {
+    func apiCall(inProgress: Bool) {
+        inProgress ? showLoader() : hideLoader()
+    }
+
     func reloadData() {
         tableView.reloadData()
     }

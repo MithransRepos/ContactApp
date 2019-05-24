@@ -26,16 +26,16 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qp9-ml-Eh8">
-                        <rect key="frame" x="72" y="24" width="176" height="15.5"/>
+                        <rect key="frame" x="72" y="24" width="182" height="15.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tRC-CT-4km">
-                        <rect key="frame" x="264" y="20" width="24" height="24"/>
+                        <rect key="frame" x="270" y="23" width="18" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="24" id="jTh-se-gVv"/>
-                            <constraint firstAttribute="height" constant="24" id="umj-uA-xLP"/>
+                            <constraint firstAttribute="width" constant="18" id="jTh-se-gVv"/>
+                            <constraint firstAttribute="height" constant="18" id="umj-uA-xLP"/>
                         </constraints>
                     </imageView>
                 </subviews>

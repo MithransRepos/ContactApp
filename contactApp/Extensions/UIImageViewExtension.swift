@@ -29,3 +29,9 @@ extension UIImageView {
         }.resume()
     }
 }
+
+extension UIImage {
+    static var starImage: UIImage? {
+        return UIImage(named: "home_favourite")
+    }
+}

@@ -37,6 +37,7 @@
 		90C03D842297E7CB0037C4DD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D832297E7CB0037C4DD /* StringExtension.swift */; };
 		90C03D862297F6480037C4DD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D852297F6480037C4DD /* UIColorExtension.swift */; };
 		90C03D882297FB580037C4DD /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D872297FB580037C4DD /* UIViewControllerExtension.swift */; };
+		90C03D8A22981B830037C4DD /* BlurLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C03D8922981B830037C4DD /* BlurLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		90C03D832297E7CB0037C4DD /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		90C03D852297F6480037C4DD /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		90C03D872297FB580037C4DD /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		90C03D8922981B830037C4DD /* BlurLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 		907CED6D22963C5200CEACF8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				90C03D8922981B830037C4DD /* BlurLoader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				907CED6922963BF400CEACF8 /* ContactsController.swift in Sources */,
 				90C03D7422969BA30037C4DD /* ContactsViewModel.swift in Sources */,
 				90747AEF2295A88400C068E3 /* AppDelegate.swift in Sources */,
+				90C03D8A22981B830037C4DD /* BlurLoader.swift in Sources */,
 				907CED8E2296474A00CEACF8 /* ContactEndPoint.swift in Sources */,
 				90C03D822297E5960037C4DD /* UIViewExtension.swift in Sources */,
 				90C03D882297FB580037C4DD /* UIViewControllerExtension.swift in Sources */,

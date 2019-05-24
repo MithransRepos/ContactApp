@@ -21,6 +21,7 @@ class ContactCell: UITableViewCell {
         nameLabel.text = contact.firstName
         avatarImageView.setRounded()
         avatarImageView.setImage(from: contact.profilePic.getGoJekImageUrl())
+        starImageView.image = contact.favorite ? .starImage : nil
     }
 }
 

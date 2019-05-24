@@ -9,6 +9,7 @@
 import Foundation
 
 protocol ContactsViewModelDelegate {
+    func apiCall(inProgress: Bool)
     func reloadData()
 }
 
@@ -22,22 +23,6 @@ class ContactsViewModel {
     }
 
     var delegate: ContactsViewModelDelegate?
-
-    init() {
-        getContacts()
-    }
-
-    private func getContacts() {
-        networkManager.getContacts { result in
-            switch result {
-            case let .success(contacts):
-                guard let contacts = contacts else { return }
-                self.indexContacts(contacts: contacts)
-            case .failure:
-                break
-            }
-        }
-    }
 
     private func indexContacts(contacts: [Contact]) {
         for contact in contacts {
@@ -60,6 +45,20 @@ class ContactsViewModel {
 }
 
 extension ContactsViewModel {
+    func getContacts() {
+        delegate?.apiCall(inProgress: true)
+        networkManager.getContacts { result in
+            self.delegate?.apiCall(inProgress: false)
+            switch result {
+            case let .success(contacts):
+                guard let contacts = contacts else { return }
+                self.indexContacts(contacts: contacts)
+            case .failure:
+                break
+            }
+        }
+    }
+
     var titleCount: Int {
         return contactTitles.count
     }
