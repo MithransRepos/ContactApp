@@ -21,6 +21,13 @@ class ContactsController: UITableViewController {
         viewModel.delegate = self
         tableView.sectionIndexColor = UIColor.lightGray
         tableView.register(ContactCell.self)
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContact))
+        barButtonItem.tintColor = .appgreen
+        self.navigationItem.rightBarButtonItem = barButtonItem
+    }
+    
+    @objc private func addContact() {
+        
     }
 }
 
