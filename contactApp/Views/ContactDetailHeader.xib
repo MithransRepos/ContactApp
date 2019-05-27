@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="335"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cG-Ht-EUZ">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cG-Ht-EUZ" customClass="GradientView" customModule="contactApp" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="335"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yqF-MH-pXd">
@@ -53,7 +53,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="bYi-7U-Q01" firstAttribute="leading" secondItem="yDY-mw-Ck6" secondAttribute="leading" id="9JF-vq-ANo"/>
                                         <constraint firstAttribute="trailing" secondItem="bYi-7U-Q01" secondAttribute="trailing" id="9f7-zq-pfC"/>
@@ -80,7 +80,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="dB7-bq-bSp" firstAttribute="top" secondItem="8am-Yh-HvY" secondAttribute="top" id="1Cz-wB-23M"/>
                                         <constraint firstAttribute="trailing" secondItem="3xW-En-faC" secondAttribute="trailing" id="6mY-mM-dk0"/>
@@ -107,7 +107,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="JQS-19-x5a" secondAttribute="trailing" id="0yz-EL-cFE"/>
                                         <constraint firstItem="rMx-Sj-CvO" firstAttribute="leading" secondItem="1B5-YR-QTd" secondAttribute="leading" id="df7-BH-dy6"/>
@@ -135,7 +135,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Yvw-vM-IJv" secondAttribute="trailing" id="6MS-cT-HGg"/>
                                         <constraint firstItem="Yvw-vM-IJv" firstAttribute="leading" secondItem="ybw-42-ZtT" secondAttribute="leading" id="9oe-nY-H4i"/>
@@ -163,6 +163,11 @@
                         <constraint firstAttribute="trailing" secondItem="bs0-By-YH6" secondAttribute="trailing" constant="30" id="mCn-iZ-Q8r"/>
                         <constraint firstItem="bs0-By-YH6" firstAttribute="top" secondItem="yqF-MH-pXd" secondAttribute="bottom" constant="8" id="wre-dw-viP"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="gradientColor2">
+                            <color key="value" red="0.75830765850000004" green="1" blue="1" alpha="0.28020466549295775" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
