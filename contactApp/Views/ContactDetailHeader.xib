@@ -19,7 +19,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cG-Ht-EUZ" customClass="GradientView" customModule="contactApp" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="335"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yqF-MH-pXd">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yqF-MH-pXd">
                             <rect key="frame" x="147" y="84" width="120" height="120"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="120" id="nbf-Pi-VdK"/>
