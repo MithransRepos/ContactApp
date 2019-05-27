@@ -165,7 +165,7 @@
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="gradientColor2">
-                            <color key="value" red="0.75830765850000004" green="1" blue="1" alpha="0.28020466549295775" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="value" red="0.75830765850000004" green="1" blue="1" alpha="0.099031690140845077" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
@@ -179,11 +179,6 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="color" keyPath="gradientColor2">
-                    <color key="value" red="0.31372549019607843" green="0.8901960784313725" blue="0.76078431372549016" alpha="0.25833516725352113" colorSpace="custom" customColorSpace="sRGB"/>
-                </userDefinedRuntimeAttribute>
-            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="avatarImageView" destination="yqF-MH-pXd" id="Bwl-wg-04c"/>
                 <outlet property="callView" destination="8am-Yh-HvY" id="P24-Cw-oLs"/>

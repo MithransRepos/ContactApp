@@ -56,15 +56,15 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DetailCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DetailCell" rowHeight="56" id="SOv-uG-0qy" customClass="DetailCell" customModule="contactApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="414" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SOv-uG-0qy" id="J3b-dd-Pjz">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SOv-uG-0qy" id="J3b-dd-Pjz">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRv-j2-7BB">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="first Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFY-4V-y7C">
-                                                    <rect key="frame" x="16" y="18" width="90" height="21"/>
+                                                    <rect key="frame" x="16" y="17.5" width="90" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="U7Q-EK-z3m"/>
                                                     </constraints>
@@ -73,7 +73,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FD2-tb-QGB">
-                                                    <rect key="frame" x="122" y="20" width="276" height="17"/>
+                                                    <rect key="frame" x="122" y="19.5" width="276" height="17"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -86,7 +86,6 @@
                                                 <constraint firstItem="CFY-4V-y7C" firstAttribute="centerY" secondItem="aRv-j2-7BB" secondAttribute="centerY" id="YcI-ax-bQe"/>
                                                 <constraint firstItem="CFY-4V-y7C" firstAttribute="leading" secondItem="aRv-j2-7BB" secondAttribute="leading" constant="16" id="el1-sO-QS5"/>
                                                 <constraint firstItem="FD2-tb-QGB" firstAttribute="centerY" secondItem="aRv-j2-7BB" secondAttribute="centerY" id="kjN-pG-qUJ"/>
-                                                <constraint firstAttribute="height" constant="56" id="yuQ-Ff-3s7"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -95,6 +94,7 @@
                                         <constraint firstItem="aRv-j2-7BB" firstAttribute="top" secondItem="J3b-dd-Pjz" secondAttribute="top" id="kR3-ya-9ee"/>
                                         <constraint firstAttribute="bottom" secondItem="aRv-j2-7BB" secondAttribute="bottom" id="nbV-bV-Ea8"/>
                                         <constraint firstItem="aRv-j2-7BB" firstAttribute="leading" secondItem="J3b-dd-Pjz" secondAttribute="leading" id="thK-On-VZW"/>
+                                        <constraint firstAttribute="bottom" secondItem="aRv-j2-7BB" secondAttribute="bottom" id="z4P-E2-3bH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

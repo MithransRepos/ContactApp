@@ -23,7 +23,6 @@ class ContactDetailsController: UITableViewController {
     }
 
     private func setupTableView() {
-        tableView.estimatedRowHeight = 56
         tableView.tableFooterView = UIView()
         tableView.register(ContactDetailHeader.self)
     }
@@ -42,6 +41,10 @@ extension ContactDetailsController {
 
     override func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
         return 335
+    }
+
+    override func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
+        return 56
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection _: Int) -> UIView? {
