@@ -34,9 +34,11 @@ extension UIImage {
     static var starImage: UIImage? {
         return UIImage(named: "home_favourite")
     }
+
     static var notfavorite: UIImage? {
         return UIImage(named: "favourite_button")
     }
+
     static var favorite: UIImage? {
         return UIImage(named: "favourite_button_selected")
     }

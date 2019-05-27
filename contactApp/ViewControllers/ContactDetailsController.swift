@@ -9,40 +9,48 @@
 import UIKit
 
 class ContactDetailsController: UITableViewController {
-    var viewModel: ContactDetailViewModel!
+    let viewModel: ContactDetailViewModel = ContactDetailViewModel()
     var editMode: Bool = false
-    var header: ContactDetailHeader!
-   
+    var contactId: Int!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = .appGreen
         navigationItem.rightBarButtonItem = editButtonItem
         viewModel.delegate = self
-        setupHeader()
+        viewModel.getContact(id: contactId)
         setupTableView()
-    }
-
-    private func setupHeader() {
-        header = ContactDetailHeader(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 335))
-        header.setupView(contact: viewModel.contact)
-        tableView.tableHeaderView = header
-
-        header.favoriteView.addTapGestureRecognizer {
-            self.viewModel.updateFavorite()
-        }
     }
 
     private func setupTableView() {
         tableView.estimatedRowHeight = 56
         tableView.tableFooterView = UIView()
+        tableView.register(ContactDetailHeader.self)
     }
 }
 
 // MARK: - Table view data source
 
 extension ContactDetailsController {
+    override func numberOfSections(in _: UITableView) -> Int {
+        return viewModel.isContactLoaded ? 1 : 0
+    }
+
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return editMode ? EditableFields.allCases.count : DisplayFields.allCases.count
+    }
+
+    override func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
+        return 335
+    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection _: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(ContactDetailHeader.self) as ContactDetailHeader
+        header.setupView(contact: viewModel.contact)
+        header.favoriteView.addTapGestureRecognizer {
+            self.viewModel.updateFavorite()
+        }
+        return header
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,11 +69,11 @@ extension ContactDetailsController {
 }
 
 extension ContactDetailsController {
-    internal static func instantiate(contact: Contact, editMode: Bool = false) -> ContactDetailsController {
+    internal static func instantiate(id: Int, editMode: Bool = false) -> ContactDetailsController {
         let storyboard = UIStoryboard(storyboard: .main)
         let _vc: ContactDetailsController = storyboard.instantiateViewController()
+        _vc.contactId = id
         _vc.editMode = editMode
-        _vc.viewModel = ContactDetailViewModel(contact: contact)
         return _vc
     }
 }
@@ -106,9 +114,12 @@ extension ContactDetailsController {
     }
 }
 
-extension ContactDetailsController: ContactDetailViewModelDelegate {
+extension ContactDetailsController: ContactsViewModelDelegate {
+    func apiCall(inProgress: Bool) {
+        inProgress ? showLoader() : hideLoader()
+    }
+
     func reloadData() {
-        header.setupView(contact: viewModel.contact)
         tableView.reloadData()
     }
 }

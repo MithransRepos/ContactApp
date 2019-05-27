@@ -8,36 +8,35 @@
 
 import UIKit
 
-class ContactDetailHeader: UIView {
-    @IBOutlet var contentView: UIView!
-    @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var messageView: UIView!
-    @IBOutlet weak var callView: UIView!
-    @IBOutlet weak var emailView: UIView!
-    @IBOutlet weak var favoriteView: UIView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var favoriteImageView: UIImageView!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initView()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        initView()
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    private func initView() {
-        Bundle.main.loadNibNamed(String(describing: ContactDetailHeader.self), owner: self, options: nil)
-        contentView.frame = bounds
-        addSubview(contentView)
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-    }
+class ContactDetailHeader: UITableViewHeaderFooterView {
+    @IBOutlet var avatarImageView: UIImageView!
+    @IBOutlet var messageView: UIView!
+    @IBOutlet var callView: UIView!
+    @IBOutlet var emailView: UIView!
+    @IBOutlet var favoriteView: UIView!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var favoriteImageView: UIImageView!
+//
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        initView()
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        initView()
+//    }
+//
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//    }
+//
+//    private func initView() {
+//        Bundle.main.loadNibNamed(String(describing: ContactDetailHeader.self), owner: self, options: nil)
+//        contentView.frame = bounds
+//        addSubview(contentView)
+//        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+//    }
 
     func setupView(contact: Contact) {
         avatarImageView.setImage(from: contact.profilePicUrl)
@@ -46,3 +45,5 @@ class ContactDetailHeader: UIView {
         favoriteImageView.image = contact.favorite ? UIImage.favorite : UIImage.notfavorite
     }
 }
+
+extension ContactDetailHeader: ReusableView, NibLoadableView {}

@@ -10,20 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactDetailHeader" customModule="contactApp" customModuleProvider="target">
-            <connections>
-                <outlet property="avatarImageView" destination="yqF-MH-pXd" id="UoI-J7-cIC"/>
-                <outlet property="callView" destination="8am-Yh-HvY" id="rv6-bv-jcy"/>
-                <outlet property="contentView" destination="iN0-l3-epB" id="lzq-yF-EZG"/>
-                <outlet property="emailView" destination="1B5-YR-QTd" id="hV3-bu-k0P"/>
-                <outlet property="favoriteImageView" destination="Fr1-gy-h9f" id="1yg-az-7bN"/>
-                <outlet property="favoriteView" destination="ybw-42-ZtT" id="wS0-gS-tUd"/>
-                <outlet property="messageView" destination="yDY-mw-Ck6" id="3dF-bR-8Ve"/>
-                <outlet property="nameLabel" destination="bs0-By-YH6" id="9Oa-wF-QYG"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" restorationIdentifier="ContactDetailHeader" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" restorationIdentifier="ContactDetailHeader" id="iN0-l3-epB" customClass="ContactDetailHeader" customModule="contactApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="335"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -190,6 +179,15 @@
                     <color key="value" red="0.31372549019607843" green="0.8901960784313725" blue="0.76078431372549016" alpha="0.25833516725352113" colorSpace="custom" customColorSpace="sRGB"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="avatarImageView" destination="yqF-MH-pXd" id="Bwl-wg-04c"/>
+                <outlet property="callView" destination="8am-Yh-HvY" id="P24-Cw-oLs"/>
+                <outlet property="emailView" destination="1B5-YR-QTd" id="vdK-OM-Pev"/>
+                <outlet property="favoriteImageView" destination="Fr1-gy-h9f" id="jct-8D-NLL"/>
+                <outlet property="favoriteView" destination="ybw-42-ZtT" id="8WA-i4-nGt"/>
+                <outlet property="messageView" destination="yDY-mw-Ck6" id="b1w-Wl-Nie"/>
+                <outlet property="nameLabel" destination="bs0-By-YH6" id="jQe-cQ-Tsh"/>
+            </connections>
             <point key="canvasLocation" x="137.109375" y="-59.077598828696921"/>
         </view>
     </objects>

@@ -79,7 +79,7 @@ extension ContactsController {
 
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let contact = viewModel.getContact(for: indexPath.section, at: indexPath.row) else { return }
-        let contactDetailsController = ContactDetailsController.instantiate(contact: contact)
+        let contactDetailsController = ContactDetailsController.instantiate(id: contact.id)
         navigationController?.pushViewController(contactDetailsController, animated: true)
     }
 }
