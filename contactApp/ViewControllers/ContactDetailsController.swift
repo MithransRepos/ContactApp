@@ -9,10 +9,9 @@
 import UIKit
 
 class ContactDetailsController: UITableViewController {
-    
     var viewModel: ContactDetailViewModel!
     var editMode: Bool = false
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = .appGreen
@@ -29,6 +28,7 @@ class ContactDetailsController: UITableViewController {
 }
 
 // MARK: - Table view data source
+
 extension ContactDetailsController {
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return editMode ? EditableFields.allCases.count : DisplayFields.allCases.count
@@ -38,10 +38,10 @@ extension ContactDetailsController {
         let cell: DetailCell = tableView.dequeueReusableCell(for: indexPath) as DetailCell
         var titleValue: (title: String, value: String?)!
         if editMode {
-            let enumRow: EditableFields = EditableFields.init(rawValue: indexPath.row)!
+            let enumRow: EditableFields = EditableFields(rawValue: indexPath.row)!
             titleValue = enumRow.getTitleValue(contact: viewModel.contact)
-        }else {
-            let enumRow: DisplayFields = DisplayFields.init(rawValue: indexPath.row)!
+        } else {
+            let enumRow: DisplayFields = DisplayFields(rawValue: indexPath.row)!
             titleValue = enumRow.getTitleValue(contact: viewModel.contact)
         }
         cell.setupCell(title: titleValue.title, value: titleValue.value, editMode: editMode)
@@ -73,7 +73,7 @@ extension ContactDetailsController {
             case .lastName:
                 return ("Last Name", contact.lastName)
             case .mobile:
-                return ("mobile" ,contact.mobile)
+                return ("mobile", contact.mobile)
             case .email:
                 return ("email", contact.email)
             }
@@ -87,7 +87,7 @@ extension ContactDetailsController {
         func getTitleValue(contact: Contact) -> (title: String, value: String?) {
             switch self {
             case .mobile:
-                return ("mobile" ,contact.mobile)
+                return ("mobile", contact.mobile)
             case .email:
                 return ("email", contact.email)
             }
