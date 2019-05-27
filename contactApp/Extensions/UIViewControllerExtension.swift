@@ -6,7 +6,6 @@
 //  Copyright © 2019 Mithran Natarajan. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 extension UIViewController {
@@ -26,3 +25,5 @@ extension UIViewController {
         }
     }
 }
+
+extension UIViewController: StoryboardIdentifiable {}

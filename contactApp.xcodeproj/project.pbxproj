@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9053229B229B7240003B7554 /* ContactDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9053229A229B7240003B7554 /* ContactDetailsController.swift */; };
+		9053229D229B76E4003B7554 /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9053229C229B76E4003B7554 /* UIStoryboardExtension.swift */; };
 		90747AEF2295A88400C068E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90747AEE2295A88400C068E3 /* AppDelegate.swift */; };
 		90747AF62295A88700C068E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90747AF52295A88700C068E3 /* Assets.xcassets */; };
 		90747AF92295A88700C068E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90747AF72295A88700C068E3 /* LaunchScreen.storyboard */; };
@@ -58,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9053229A229B7240003B7554 /* ContactDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsController.swift; sourceTree = "<group>"; };
+		9053229C229B76E4003B7554 /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
 		90747AEB2295A88400C068E3 /* contactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = contactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90747AEE2295A88400C068E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90747AF52295A88700C068E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				907CED6822963BF400CEACF8 /* ContactsController.swift */,
+				9053229A229B7240003B7554 /* ContactDetailsController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 				90C03D832297E7CB0037C4DD /* Extension.swift */,
 				90C03D852297F6480037C4DD /* UIColorExtension.swift */,
 				90C03D872297FB580037C4DD /* UIViewControllerExtension.swift */,
+				9053229C229B76E4003B7554 /* UIStoryboardExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -437,6 +443,7 @@
 				907CED90229647BF00CEACF8 /* NetworkConstants.swift in Sources */,
 				907CED88229643B400CEACF8 /* EndPointType.swift in Sources */,
 				907CED81229641FE00CEACF8 /* HTTPTask.swift in Sources */,
+				9053229D229B76E4003B7554 /* UIStoryboardExtension.swift in Sources */,
 				90C03D862297F6480037C4DD /* UIColorExtension.swift in Sources */,
 				90C03D7E2297DEFB0037C4DD /* UITableViewExtension.swift in Sources */,
 				907CED7D229640D500CEACF8 /* JSONParameterEncoder.swift in Sources */,
@@ -452,6 +459,7 @@
 				90C03D7422969BA30037C4DD /* ContactsViewModel.swift in Sources */,
 				90747AEF2295A88400C068E3 /* AppDelegate.swift in Sources */,
 				90C03D8A22981B830037C4DD /* BlurLoader.swift in Sources */,
+				9053229B229B7240003B7554 /* ContactDetailsController.swift in Sources */,
 				907CED8E2296474A00CEACF8 /* ContactEndPoint.swift in Sources */,
 				90C03D822297E5960037C4DD /* UIViewExtension.swift in Sources */,
 				90C03D882297FB580037C4DD /* UIViewControllerExtension.swift in Sources */,

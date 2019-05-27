@@ -76,6 +76,11 @@ extension ContactsController {
     override func sectionIndexTitles(for _: UITableView) -> [String]? {
         return viewModel.contactTitles
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let contactDetailsController = ContactDetailsController.instantiate()
+        self.navigationController?.pushViewController(contactDetailsController, animated: true)
+    }
 }
 
 extension ContactsController: ContactsViewModelDelegate {
