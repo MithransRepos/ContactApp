@@ -19,13 +19,12 @@ class ContactDetailsController: UITableViewController {
         setupNavigation()
         setupTableView()
     }
-    
+
     private func setupViewModel() {
         viewModel.delegate = self
         viewModel.getContact(id: contactId)
     }
 
-    
     private func setupNavigation() {
         navigationController?.navigationBar.tintColor = .appGreen
         navigationItem.rightBarButtonItem = editButtonItem
@@ -41,7 +40,7 @@ class ContactDetailsController: UITableViewController {
 
 extension ContactDetailsController {
     override func numberOfSections(in _: UITableView) -> Int {
-        return (viewModel.isContactLoaded || mode == .add ) ? 1 : 0
+        return (viewModel.isContactLoaded || mode == .add) ? 1 : 0
     }
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
@@ -78,10 +77,10 @@ extension ContactDetailsController {
         switch mode {
         case .add, .edit:
             let enumRow: EditableFields = EditableFields(rawValue: indexPath.row)!
-            cell.setupCell(rowValue: enumRow.getTitleValue(contact: viewModel.contact), editMode:  editMode)
+            cell.setupCell(rowValue: enumRow.getTitleValue(contact: viewModel.contact), editMode: editMode)
         case .view:
             let enumRow: DisplayFields = DisplayFields(rawValue: indexPath.row)!
-            cell.setupCell(rowValue: enumRow.getTitleValue(contact: viewModel.contact), editMode:  editMode)
+            cell.setupCell(rowValue: enumRow.getTitleValue(contact: viewModel.contact), editMode: editMode)
         }
         return cell
     }
@@ -98,12 +97,12 @@ extension ContactDetailsController {
 }
 
 extension ContactDetailsController {
-    
     enum Mode {
         case add
         case edit
         case view
     }
+
     enum EditableFields: Int, CaseIterable {
         case firstName
         case lastName

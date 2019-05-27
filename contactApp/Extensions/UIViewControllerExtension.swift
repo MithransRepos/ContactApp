@@ -24,7 +24,7 @@ extension UIViewController {
             blurLoader.removeFromSuperview()
         }
     }
-    
+
     var isModal: Bool {
         if let index = navigationController?.viewControllers.firstIndex(of: self), index > 0 {
             return false
