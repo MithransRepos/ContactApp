@@ -17,9 +17,9 @@ class DetailCell: BaseTableViewCell {
         // Initialization code
     }
 
-    func setupCell(title: String, value: String?, editMode: Bool) {
-        titleLabel.text = title
-        valueTextField.text = value
+    func setupCell(rowValue: RowValue, editMode: Bool) {
+        titleLabel.text = rowValue.title
+        valueTextField.text = rowValue.value
         valueTextField.isUserInteractionEnabled = editMode
     }
 }

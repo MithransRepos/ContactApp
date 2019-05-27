@@ -36,7 +36,10 @@ class ContactsController: UITableViewController {
         navigationItem.rightBarButtonItem = barButtonItem
     }
 
-    @objc private func addContact() {}
+    @objc private func addContact() {
+        let contactDetailsController = ContactDetailsController.instantiate(mode: .add)
+        navigationController?.present(contactDetailsController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Table view data source

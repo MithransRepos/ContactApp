@@ -25,7 +25,8 @@ extension ContactDetailViewModel {
         return contact != nil
     }
 
-    func getContact(id: Int) {
+    func getContact(id: Int?) {
+        guard let id = id else { return }
         delegate?.apiCall(inProgress: true)
         networkManager.getContact(id: id) { result in
             self.delegate?.apiCall(inProgress: false)

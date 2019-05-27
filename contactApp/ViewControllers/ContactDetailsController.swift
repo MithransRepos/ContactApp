@@ -7,19 +7,28 @@
 //
 
 import UIKit
-
+typealias RowValue = (title: String, value: String?)
 class ContactDetailsController: UITableViewController {
     let viewModel: ContactDetailViewModel = ContactDetailViewModel()
-    var editMode: Bool = false
-    var contactId: Int!
+    var mode: Mode = .view
+    var contactId: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.tintColor = .appGreen
-        navigationItem.rightBarButtonItem = editButtonItem
+        setupViewModel()
+        setupNavigation()
+        setupTableView()
+    }
+    
+    private func setupViewModel() {
         viewModel.delegate = self
         viewModel.getContact(id: contactId)
-        setupTableView()
+    }
+
+    
+    private func setupNavigation() {
+        navigationController?.navigationBar.tintColor = .appGreen
+        navigationItem.rightBarButtonItem = editButtonItem
     }
 
     private func setupTableView() {
@@ -32,11 +41,16 @@ class ContactDetailsController: UITableViewController {
 
 extension ContactDetailsController {
     override func numberOfSections(in _: UITableView) -> Int {
-        return viewModel.isContactLoaded ? 1 : 0
+        return (viewModel.isContactLoaded || mode == .add ) ? 1 : 0
     }
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return editMode ? EditableFields.allCases.count : DisplayFields.allCases.count
+        switch mode {
+        case .add, .edit:
+            return EditableFields.allCases.count
+        case .view:
+            return DisplayFields.allCases.count
+        }
     }
 
     override func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
@@ -49,7 +63,9 @@ extension ContactDetailsController {
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection _: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(ContactDetailHeader.self) as ContactDetailHeader
-        header.setupView(contact: viewModel.contact)
+        if mode != .add {
+            header.setupView(contact: viewModel.contact)
+        }
         header.favoriteView.addTapGestureRecognizer {
             self.viewModel.updateFavorite()
         }
@@ -58,46 +74,52 @@ extension ContactDetailsController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: DetailCell = tableView.dequeueReusableCell(for: indexPath) as DetailCell
-        var titleValue: (title: String, value: String?)!
-        if editMode {
+        let editMode = mode == .add || mode == .edit
+        switch mode {
+        case .add, .edit:
             let enumRow: EditableFields = EditableFields(rawValue: indexPath.row)!
-            titleValue = enumRow.getTitleValue(contact: viewModel.contact)
-        } else {
+            cell.setupCell(rowValue: enumRow.getTitleValue(contact: viewModel.contact), editMode:  editMode)
+        case .view:
             let enumRow: DisplayFields = DisplayFields(rawValue: indexPath.row)!
-            titleValue = enumRow.getTitleValue(contact: viewModel.contact)
+            cell.setupCell(rowValue: enumRow.getTitleValue(contact: viewModel.contact), editMode:  editMode)
         }
-        cell.setupCell(title: titleValue.title, value: titleValue.value, editMode: editMode)
         return cell
     }
 }
 
 extension ContactDetailsController {
-    internal static func instantiate(id: Int, editMode: Bool = false) -> ContactDetailsController {
+    internal static func instantiate(id: Int? = nil, mode: Mode = .view) -> ContactDetailsController {
         let storyboard = UIStoryboard(storyboard: .main)
         let _vc: ContactDetailsController = storyboard.instantiateViewController()
         _vc.contactId = id
-        _vc.editMode = editMode
+        _vc.mode = mode
         return _vc
     }
 }
 
 extension ContactDetailsController {
+    
+    enum Mode {
+        case add
+        case edit
+        case view
+    }
     enum EditableFields: Int, CaseIterable {
         case firstName
         case lastName
         case mobile
         case email
 
-        func getTitleValue(contact: Contact) -> (title: String, value: String?) {
+        func getTitleValue(contact: Contact?) -> RowValue {
             switch self {
             case .firstName:
-                return ("First Name", contact.firstName)
+                return ("First Name", contact?.firstName)
             case .lastName:
-                return ("Last Name", contact.lastName)
+                return ("Last Name", contact?.lastName)
             case .mobile:
-                return ("mobile", contact.mobile)
+                return ("mobile", contact?.mobile)
             case .email:
-                return ("email", contact.email)
+                return ("email", contact?.email)
             }
         }
     }
@@ -106,7 +128,7 @@ extension ContactDetailsController {
         case email
         case mobile
 
-        func getTitleValue(contact: Contact) -> (title: String, value: String?) {
+        func getTitleValue(contact: Contact) -> RowValue {
             switch self {
             case .mobile:
                 return ("mobile", contact.mobile)
