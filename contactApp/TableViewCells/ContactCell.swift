@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactCell: UITableViewCell {
+class ContactCell: BaseTableViewCell {
     @IBOutlet var avatarImageView: UIImageView!
     @IBOutlet var starImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
@@ -24,5 +24,3 @@ class ContactCell: UITableViewCell {
         starImageView.image = contact.favorite ? .starImage : nil
     }
 }
-
-extension ContactCell: NibLoadableView, ReusableView {}

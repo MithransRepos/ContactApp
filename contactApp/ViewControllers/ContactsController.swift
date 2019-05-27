@@ -32,7 +32,7 @@ class ContactsController: UITableViewController {
 
     private func setupAddNavigationButton() {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContact))
-        barButtonItem.tintColor = .appgreen
+        barButtonItem.tintColor = .appGreen
         navigationItem.rightBarButtonItem = barButtonItem
     }
 
@@ -76,10 +76,11 @@ extension ContactsController {
     override func sectionIndexTitles(for _: UITableView) -> [String]? {
         return viewModel.contactTitles
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contactDetailsController = ContactDetailsController.instantiate()
-        self.navigationController?.pushViewController(contactDetailsController, animated: true)
+
+    override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let contact = viewModel.getContact(for: indexPath.section, at: indexPath.row) else { return }
+        let contactDetailsController = ContactDetailsController.instantiate(contact: contact)
+        navigationController?.pushViewController(contactDetailsController, animated: true)
     }
 }
 

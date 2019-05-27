@@ -34,7 +34,7 @@ extension UIColor {
         return UIColor(rgb: 0x4A4A4A)
     }
 
-    static var appgreen: UIColor {
+    static var appGreen: UIColor {
         return UIColor(rgb: 0x50E3C2)
     }
 }

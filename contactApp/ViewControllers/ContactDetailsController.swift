@@ -9,28 +9,41 @@
 import UIKit
 
 class ContactDetailsController: UITableViewController {
+    var viewModel: ContactDetailViewModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.tintColor = .appGreen
+        setupTableView()
+    }
+
+    private func setupTableView() {
+        let header = ContactDetailHeader(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 332))
+        header.setupView(contact: viewModel.contact)
+        tableView.tableHeaderView = header
+        tableView.estimatedRowHeight = 56
+        tableView.tableFooterView = UIView()
     }
 }
 
 // MARK: - Table view data source
 
 extension ContactDetailsController {
-    override func numberOfSections(in _: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return 2
     }
 
-    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: DetailCell = tableView.dequeueReusableCell(for: indexPath) as DetailCell
+        return cell
     }
 }
+
 extension ContactDetailsController {
-    internal static func instantiate() -> ContactDetailsController {
+    internal static func instantiate(contact: Contact) -> ContactDetailsController {
         let storyboard = UIStoryboard(storyboard: .main)
         let _vc: ContactDetailsController = storyboard.instantiateViewController()
+        _vc.viewModel = ContactDetailViewModel(contact: contact)
         return _vc
     }
 }
