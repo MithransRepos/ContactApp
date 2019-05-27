@@ -17,9 +17,9 @@ class DetailCell: BaseTableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setupCell(title: String, value: String?, editMode: Bool) {
+        titleLabel.text = title
+        valueTextField.text = value
+        valueTextField.isUserInteractionEnabled = editMode
     }
 }

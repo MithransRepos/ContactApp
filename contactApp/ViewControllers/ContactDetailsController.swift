@@ -9,8 +9,10 @@
 import UIKit
 
 class ContactDetailsController: UITableViewController {
+    
     var viewModel: ContactDetailViewModel!
-
+    var editMode: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = .appGreen
@@ -27,58 +29,67 @@ class ContactDetailsController: UITableViewController {
 }
 
 // MARK: - Table view data source
-
 extension ContactDetailsController {
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return DisplayFields.allCases.count
+        return editMode ? EditableFields.allCases.count : DisplayFields.allCases.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: DetailCell = tableView.dequeueReusableCell(for: indexPath) as DetailCell
+        var titleValue: (title: String, value: String?)!
+        if editMode {
+            let enumRow: EditableFields = EditableFields.init(rawValue: indexPath.row)!
+            titleValue = enumRow.getTitleValue(contact: viewModel.contact)
+        }else {
+            let enumRow: DisplayFields = DisplayFields.init(rawValue: indexPath.row)!
+            titleValue = enumRow.getTitleValue(contact: viewModel.contact)
+        }
+        cell.setupCell(title: titleValue.title, value: titleValue.value, editMode: editMode)
         return cell
     }
 }
 
 extension ContactDetailsController {
-    internal static func instantiate(contact: Contact) -> ContactDetailsController {
+    internal static func instantiate(contact: Contact, editMode: Bool = false) -> ContactDetailsController {
         let storyboard = UIStoryboard(storyboard: .main)
         let _vc: ContactDetailsController = storyboard.instantiateViewController()
+        _vc.editMode = editMode
         _vc.viewModel = ContactDetailViewModel(contact: contact)
         return _vc
     }
 }
 
 extension ContactDetailsController {
-    enum EditableFields: String, CaseIterable {
-        case firstName = "First Name"
-        case lastName = "Last Name"
+    enum EditableFields: Int, CaseIterable {
+        case firstName
+        case lastName
         case mobile
         case email
 
-        func getValue(contact: Contact) -> String? {
+        func getTitleValue(contact: Contact) -> (title: String, value: String?) {
             switch self {
             case .firstName:
-                return contact.firstName
+                return ("First Name", contact.firstName)
             case .lastName:
-                return contact.firstName
+                return ("Last Name", contact.lastName)
             case .mobile:
-                return contact.mobile
+                return ("mobile" ,contact.mobile)
             case .email:
-                return contact.email
+                return ("email", contact.email)
             }
         }
     }
 
-    enum DisplayFields: CaseIterable {
+    enum DisplayFields: Int, CaseIterable {
         case email
         case mobile
 
-        func getValue(contact: Contact) -> String? {
+        func getTitleValue(contact: Contact) -> (title: String, value: String?) {
             switch self {
             case .mobile:
-                return contact.mobile
+                return ("mobile" ,contact.mobile)
             case .email:
-                return contact.email
+                return ("email", contact.email)
             }
         }
     }
