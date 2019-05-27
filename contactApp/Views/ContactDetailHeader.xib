@@ -12,13 +12,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactDetailHeader" customModule="contactApp" customModuleProvider="target">
             <connections>
-                <outlet property="avatarImageView" destination="yqF-MH-pXd" id="cgx-zv-TRH"/>
-                <outlet property="callView" destination="8am-Yh-HvY" id="1bc-X3-3Gp"/>
+                <outlet property="avatarImageView" destination="yqF-MH-pXd" id="UoI-J7-cIC"/>
+                <outlet property="callView" destination="8am-Yh-HvY" id="rv6-bv-jcy"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="lzq-yF-EZG"/>
-                <outlet property="emailView" destination="1B5-YR-QTd" id="pjw-Kw-rqJ"/>
-                <outlet property="favoriteView" destination="ybw-42-ZtT" id="6az-69-NhA"/>
-                <outlet property="messageView" destination="yDY-mw-Ck6" id="1PK-cA-8RR"/>
-                <outlet property="nameLabel" destination="bs0-By-YH6" id="zn4-4z-piF"/>
+                <outlet property="emailView" destination="1B5-YR-QTd" id="hV3-bu-k0P"/>
+                <outlet property="favoriteImageView" destination="Fr1-gy-h9f" id="1yg-az-7bN"/>
+                <outlet property="favoriteView" destination="ybw-42-ZtT" id="wS0-gS-tUd"/>
+                <outlet property="messageView" destination="yDY-mw-Ck6" id="3dF-bR-8Ve"/>
+                <outlet property="nameLabel" destination="bs0-By-YH6" id="9Oa-wF-QYG"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

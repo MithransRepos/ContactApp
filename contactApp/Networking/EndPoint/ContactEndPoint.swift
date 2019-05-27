@@ -28,7 +28,7 @@ extension ContactApi: EndPointType {
         case .getContacts:
             return "/contacts.json"
         case let .getContact(id), .editContact(let id, _):
-            return "/contacts/{\(id)}.json"
+            return "/contacts/\(id).json"
         case .addContact:
             return "/contacts.json"
         case let .deleteContact(id):

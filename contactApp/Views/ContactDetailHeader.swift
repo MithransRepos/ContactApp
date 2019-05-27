@@ -10,13 +10,14 @@ import UIKit
 
 class ContactDetailHeader: UIView {
     @IBOutlet var contentView: UIView!
-    @IBOutlet var avatarImageView: UIImageView!
-    @IBOutlet var messageView: UIView!
-    @IBOutlet var callView: UIView!
-    @IBOutlet var emailView: UIView!
-    @IBOutlet var favoriteView: UIView!
-    @IBOutlet var nameLabel: UILabel!
-
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var messageView: UIView!
+    @IBOutlet weak var callView: UIView!
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var favoriteView: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var favoriteImageView: UIImageView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initView()
@@ -42,5 +43,6 @@ class ContactDetailHeader: UIView {
         avatarImageView.setImage(from: contact.profilePicUrl)
         avatarImageView.setBorder(withColor: .white, borderWidth: 2)
         nameLabel.text = contact.firstName
+        favoriteImageView.image = contact.favorite ? UIImage.favorite : UIImage.notfavorite
     }
 }

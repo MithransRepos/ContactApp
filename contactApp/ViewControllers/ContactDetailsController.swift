@@ -11,17 +11,19 @@ import UIKit
 class ContactDetailsController: UITableViewController {
     var viewModel: ContactDetailViewModel!
     var editMode: Bool = false
-
+    var header: ContactDetailHeader!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = .appGreen
         navigationItem.rightBarButtonItem = editButtonItem
+        viewModel.delegate = self
         setupHeader()
         setupTableView()
     }
 
     private func setupHeader() {
-        let header = ContactDetailHeader(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 335))
+        header = ContactDetailHeader(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 335))
         header.setupView(contact: viewModel.contact)
         tableView.tableHeaderView = header
 
@@ -101,5 +103,12 @@ extension ContactDetailsController {
                 return ("email", contact.email)
             }
         }
+    }
+}
+
+extension ContactDetailsController: ContactDetailViewModelDelegate {
+    func reloadData() {
+        header.setupView(contact: viewModel.contact)
+        tableView.reloadData()
     }
 }

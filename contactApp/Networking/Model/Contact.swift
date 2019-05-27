@@ -14,7 +14,7 @@ struct Contact: Codable, Equatable {
     let id: Int
     let firstName, lastName, profilePic: String
     let favorite: Bool
-    let url: String
+    let url: String?
     let email: String?
     let mobile: String?
 
