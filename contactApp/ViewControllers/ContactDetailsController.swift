@@ -15,13 +15,22 @@ class ContactDetailsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = .appGreen
+        navigationItem.rightBarButtonItem = editButtonItem
+        setupHeader()
         setupTableView()
     }
 
-    private func setupTableView() {
-        let header = ContactDetailHeader(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 332))
+    private func setupHeader() {
+        let header = ContactDetailHeader(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 335))
         header.setupView(contact: viewModel.contact)
         tableView.tableHeaderView = header
+
+        header.favoriteView.addTapGestureRecognizer {
+            self.viewModel.updateFavorite()
+        }
+    }
+
+    private func setupTableView() {
         tableView.estimatedRowHeight = 56
         tableView.tableFooterView = UIView()
     }
