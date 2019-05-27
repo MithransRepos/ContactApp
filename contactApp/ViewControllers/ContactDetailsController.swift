@@ -30,7 +30,7 @@ class ContactDetailsController: UITableViewController {
 
 extension ContactDetailsController {
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 2
+        return DisplayFields.allCases.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,5 +45,41 @@ extension ContactDetailsController {
         let _vc: ContactDetailsController = storyboard.instantiateViewController()
         _vc.viewModel = ContactDetailViewModel(contact: contact)
         return _vc
+    }
+}
+
+extension ContactDetailsController {
+    enum EditableFields: String, CaseIterable {
+        case firstName = "First Name"
+        case lastName = "Last Name"
+        case mobile
+        case email
+
+        func getValue(contact: Contact) -> String? {
+            switch self {
+            case .firstName:
+                return contact.firstName
+            case .lastName:
+                return contact.firstName
+            case .mobile:
+                return contact.mobile
+            case .email:
+                return contact.email
+            }
+        }
+    }
+
+    enum DisplayFields: CaseIterable {
+        case email
+        case mobile
+
+        func getValue(contact: Contact) -> String? {
+            switch self {
+            case .mobile:
+                return contact.mobile
+            case .email:
+                return contact.email
+            }
+        }
     }
 }

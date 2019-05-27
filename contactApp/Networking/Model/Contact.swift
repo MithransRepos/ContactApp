@@ -15,12 +15,15 @@ struct Contact: Codable, Equatable {
     let firstName, lastName, profilePic: String
     let favorite: Bool
     let url: String
+    let email: String?
+    let mobile: String?
 
     enum CodingKeys: String, CodingKey {
-        case id
+        case id, email
         case firstName = "first_name"
         case lastName = "last_name"
         case profilePic = "profile_pic"
+        case mobile = "phone_number"
         case favorite, url
     }
 
