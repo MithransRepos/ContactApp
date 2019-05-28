@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="335"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cG-Ht-EUZ">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cG-Ht-EUZ" customClass="GradientView" customModule="contactApp" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="335"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yqF-MH-pXd">
@@ -161,6 +161,11 @@
                         <constraint firstAttribute="trailing" secondItem="bs0-By-YH6" secondAttribute="trailing" constant="30" id="mCn-iZ-Q8r"/>
                         <constraint firstItem="bs0-By-YH6" firstAttribute="top" secondItem="yqF-MH-pXd" secondAttribute="bottom" constant="8" id="wre-dw-viP"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="gradientColor2">
+                            <color key="value" red="0.75830765850000004" green="1" blue="1" alpha="0.10123239436619719" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
