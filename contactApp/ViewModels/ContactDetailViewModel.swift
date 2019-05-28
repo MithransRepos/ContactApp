@@ -22,6 +22,7 @@ class ContactDetailViewModel {
             switch result {
             case let .success(response):
                 self.setContact(contact: response)
+                self.delegate?.apiSuccess()
             case .failure:
                 self.delegate?.showAlert(message: "Update contact failed!")
             }
@@ -35,6 +36,7 @@ class ContactDetailViewModel {
             switch result {
             case let .success(response):
                 self.setContact(contact: response)
+                self.delegate?.apiSuccess()
             case .failure:
                 self.delegate?.showAlert(message: "Add contact failed!")
             }
@@ -74,6 +76,7 @@ extension ContactDetailViewModel {
     }
 
     func getContact(id: Int?) {
+        if contact != nil { return }
         guard let id = id else { return }
         delegate?.apiCall(inProgress: true)
         networkManager.getContact(id: id) { result in

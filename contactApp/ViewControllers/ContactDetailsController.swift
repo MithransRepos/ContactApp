@@ -9,7 +9,7 @@
 import UIKit
 typealias RowValue = (title: String, value: String?)
 class ContactDetailsController: UITableViewController {
-    let viewModel: ContactDetailViewModel = ContactDetailViewModel()
+    var viewModel: ContactDetailViewModel!
     var mode: Mode = .view
     var contactId: Int?
 
@@ -32,7 +32,7 @@ class ContactDetailsController: UITableViewController {
     private func setupNavigation() {
         navigationController?.navigationBar.tintColor = .appGreen
         if isModal {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(dismissControllerAnimatted))
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(cancelTapped))
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneTapped))
         } else {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
@@ -46,13 +46,18 @@ class ContactDetailsController: UITableViewController {
     }
 
     @objc func editTapped() {
-        let contactDetailsController = ContactDetailsController.instantiate(id: contactId, mode: .edit)
+        let contactDetailsController = ContactDetailsController.instantiate(id: contactId, viewModel: viewModel, mode: .edit)
         let navController = UINavigationController(rootViewController: contactDetailsController)
         navigationController?.present(navController, animated: false, completion: nil)
     }
 
     @objc func doneTapped() {
         viewModel.saveContact()
+    }
+
+    @objc func cancelTapped() {
+        if mode == .edit { dismissControllerNotAnimatted() }
+        else { dismissControllerAnimatted() }
     }
 }
 
@@ -116,11 +121,16 @@ extension ContactDetailsController {
 }
 
 extension ContactDetailsController {
-    internal static func instantiate(id: Int? = nil, mode: Mode = .view) -> ContactDetailsController {
+    internal static func instantiate(id: Int? = nil, viewModel: ContactDetailViewModel? = nil, mode: Mode = .view) -> ContactDetailsController {
         let storyboard = UIStoryboard(storyboard: .main)
         let _vc: ContactDetailsController = storyboard.instantiateViewController()
         _vc.contactId = id
         _vc.mode = mode
+        if viewModel != nil {
+            _vc.viewModel = viewModel
+        } else {
+            _vc.viewModel = ContactDetailViewModel()
+        }
         return _vc
     }
 }
@@ -168,6 +178,10 @@ extension ContactDetailsController {
 }
 
 extension ContactDetailsController: ContactsViewModelDelegate {
+    func apiSuccess() {
+        cancelTapped()
+    }
+    
     func showAlert(message: String) {
         showAlert(alertTitle: nil, alertMessage: message)
     }

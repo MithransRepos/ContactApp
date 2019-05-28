@@ -11,6 +11,7 @@ import Foundation
 protocol ContactsViewModelDelegate {
     func showAlert(message: String)
     func apiCall(inProgress: Bool)
+    func apiSuccess()
     func reloadData()
 }
 

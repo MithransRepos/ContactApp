@@ -89,6 +89,11 @@ extension ContactsController {
 }
 
 extension ContactsController: ContactsViewModelDelegate {
+    func apiSuccess() {
+        
+    }
+    
+    
     func showAlert(message: String) {
         showAlert(alertTitle: nil, alertMessage: message)
     }
