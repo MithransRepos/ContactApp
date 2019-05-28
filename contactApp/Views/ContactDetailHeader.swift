@@ -20,7 +20,8 @@ class ContactDetailHeader: UITableViewHeaderFooterView {
 
     override func awakeFromNib() {
         avatarImageView.setRounded()
-        avatarImageView.setBorder(withColor: .lightGray, borderWidth: 2)
+        avatarImageView.setBorder(withColor: .white, borderWidth: 2)
+        avatarImageView.image = UIImage.placeholder
     }
 
     func setupView(contact: Contact) {

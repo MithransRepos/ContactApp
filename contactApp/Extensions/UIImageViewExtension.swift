@@ -42,4 +42,8 @@ extension UIImage {
     static var favorite: UIImage? {
         return UIImage(named: "favourite_button_selected")
     }
+
+    static var placeholder: UIImage? {
+        return UIImage(named: "placeholder_photo")
+    }
 }

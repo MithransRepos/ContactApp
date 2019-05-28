@@ -7,7 +7,7 @@
 //
 
 import UIKit
-typealias RowValue = (title: String, value: String?)
+typealias DetailCellData = (title: String, value: String?, keypadType: UIKeyboardType)
 class ContactDetailsController: UITableViewController {
     var viewModel: ContactDetailViewModel!
     var mode: Mode = .view
@@ -148,16 +148,16 @@ extension ContactDetailsController {
         case mobile
         case email
 
-        func getTitleValue(contact: Contact?) -> RowValue {
+        func getTitleValue(contact: Contact?) -> DetailCellData {
             switch self {
             case .firstName:
-                return ("First Name", contact?.firstName)
+                return ("First Name", contact?.firstName, UIKeyboardType.namePhonePad)
             case .lastName:
-                return ("Last Name", contact?.lastName)
+                return ("Last Name", contact?.lastName, UIKeyboardType.namePhonePad)
             case .mobile:
-                return ("mobile", contact?.mobile)
+                return ("mobile", contact?.mobile, UIKeyboardType.numberPad)
             case .email:
-                return ("email", contact?.email)
+                return ("email", contact?.email, UIKeyboardType.emailAddress)
             }
         }
     }
@@ -166,12 +166,12 @@ extension ContactDetailsController {
         case email
         case mobile
 
-        func getTitleValue(contact: Contact) -> RowValue {
+        func getTitleValue(contact: Contact) -> DetailCellData {
             switch self {
             case .mobile:
-                return ("mobile", contact.mobile)
+                return ("mobile", contact.mobile, UIKeyboardType.numberPad)
             case .email:
-                return ("email", contact.email)
+                return ("email", contact.email, UIKeyboardType.emailAddress)
             }
         }
     }
@@ -181,7 +181,7 @@ extension ContactDetailsController: ContactsViewModelDelegate {
     func apiSuccess() {
         cancelTapped()
     }
-    
+
     func showAlert(message: String) {
         showAlert(alertTitle: nil, alertMessage: message)
     }

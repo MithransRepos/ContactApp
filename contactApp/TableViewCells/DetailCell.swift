@@ -21,11 +21,12 @@ class DetailCell: BaseTableViewCell {
         super.awakeFromNib()
     }
 
-    func setupCell(rowValue: RowValue, tag: Int, editMode: Bool) {
+    func setupCell(rowValue: DetailCellData, tag: Int, editMode: Bool) {
         titleLabel.text = rowValue.title
         valueTextField.text = rowValue.value
         valueTextField.tag = tag
         valueTextField.isUserInteractionEnabled = editMode
+        valueTextField.keyboardType = rowValue.keypadType
     }
 
     @IBAction func editingChanged(_ sender: UITextField) {

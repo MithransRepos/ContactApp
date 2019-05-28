@@ -99,14 +99,14 @@ extension ContactDetailViewModel {
 
     func saveContact() {
         guard let contact = contact else { return }
-        if contact.firstName.isEmpty {
-            delegate?.showAlert(message: "First name can't be empty")
-        } else if contact.lastName.isEmpty {
-            delegate?.showAlert(message: "Last name can't be empty")
-        } else if contact.mobile == nil || contact.mobile!.isEmpty {
-            delegate?.showAlert(message: "mobile can't be empty")
-        } else if contact.email == nil || contact.email!.isEmpty {
-            delegate?.showAlert(message: "email name can't be empty")
+        if contact.firstName.isEmpty || contact.firstName.count < 3 {
+            delegate?.showAlert(message: "First name not valid")
+        } else if contact.lastName.isEmpty || contact.lastName.count < 3 {
+            delegate?.showAlert(message: "Last name not valid")
+        } else if contact.mobile == nil || contact.mobile!.count < 10 {
+            delegate?.showAlert(message: "mobile number not valid")
+        } else if contact.email == nil || !contact.email!.isValidEmail {
+            delegate?.showAlert(message: "email not valid")
         } else {
             guard let contactDictionary: Parameters = try? contact.asDictionary() else { return }
             guard let id = contact.id else {
