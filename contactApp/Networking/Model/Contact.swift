@@ -11,12 +11,19 @@ import Foundation
 // MARK: - Contact
 
 struct Contact: Codable, Equatable {
-    let id: Int
-    let firstName, lastName, profilePic: String
-    let favorite: Bool
-    let url: String?
-    let email: String?
-    let mobile: String?
+    var id: Int?
+    var firstName, lastName, profilePic: String
+    var favorite: Bool
+    var url: String?
+    var email: String?
+    var mobile: String?
+
+    init() {
+        firstName = ""
+        lastName = ""
+        profilePic = ""
+        favorite = false
+    }
 
     enum CodingKeys: String, CodingKey {
         case id, email

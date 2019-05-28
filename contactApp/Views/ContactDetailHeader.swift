@@ -16,13 +16,22 @@ class ContactDetailHeader: UITableViewHeaderFooterView {
     @IBOutlet var favoriteView: UIView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var favoriteImageView: UIImageView!
+    @IBOutlet var stackView: UIStackView!
+
+    override func awakeFromNib() {
+        avatarImageView.setRounded()
+        avatarImageView.setBorder(withColor: .lightGray, borderWidth: 2)
+    }
 
     func setupView(contact: Contact) {
         favoriteImageView.setRounded()
         avatarImageView.setImage(from: contact.profilePicUrl)
-        avatarImageView.setBorder(withColor: .white, borderWidth: 2)
         nameLabel.text = contact.firstName
         favoriteImageView.image = contact.favorite ? UIImage.favorite : UIImage.notfavorite
+    }
+
+    func hideStackView() {
+        stackView.isHidden = true
     }
 }
 

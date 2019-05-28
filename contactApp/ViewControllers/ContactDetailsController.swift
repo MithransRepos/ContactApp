@@ -22,17 +22,37 @@ class ContactDetailsController: UITableViewController {
 
     private func setupViewModel() {
         viewModel.delegate = self
-        viewModel.getContact(id: contactId)
+        if mode == .add {
+            viewModel.initContact()
+        } else {
+            viewModel.getContact(id: contactId)
+        }
     }
 
     private func setupNavigation() {
         navigationController?.navigationBar.tintColor = .appGreen
-        navigationItem.rightBarButtonItem = editButtonItem
+        if isModal {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(dismissControllerAnimatted))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneTapped))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
+        }
     }
 
     private func setupTableView() {
+        hideKeyboardOnTouchOutside()
         tableView.tableFooterView = UIView()
         tableView.register(ContactDetailHeader.self)
+    }
+
+    @objc func editTapped() {
+        let contactDetailsController = ContactDetailsController.instantiate(id: contactId, mode: .edit)
+        let navController = UINavigationController(rootViewController: contactDetailsController)
+        navigationController?.present(navController, animated: false, completion: nil)
+    }
+
+    @objc func doneTapped() {
+        viewModel.saveContact()
     }
 }
 
@@ -53,7 +73,12 @@ extension ContactDetailsController {
     }
 
     override func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
-        return 335
+        switch mode {
+        case .add, .edit:
+            return 262
+        case .view:
+            return 335
+        }
     }
 
     override func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
@@ -62,7 +87,10 @@ extension ContactDetailsController {
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection _: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(ContactDetailHeader.self) as ContactDetailHeader
-        if mode != .add {
+        switch mode {
+        case .add, .edit:
+            header.hideStackView()
+        case .view:
             header.setupView(contact: viewModel.contact)
         }
         header.favoriteView.addTapGestureRecognizer {
@@ -73,14 +101,15 @@ extension ContactDetailsController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: DetailCell = tableView.dequeueReusableCell(for: indexPath) as DetailCell
+        cell.delegate = self
         let editMode = mode == .add || mode == .edit
         switch mode {
         case .add, .edit:
             let enumRow: EditableFields = EditableFields(rawValue: indexPath.row)!
-            cell.setupCell(rowValue: enumRow.getTitleValue(contact: viewModel.contact), editMode: editMode)
+            cell.setupCell(rowValue: enumRow.getTitleValue(contact: viewModel.contact), tag: indexPath.row, editMode: editMode)
         case .view:
             let enumRow: DisplayFields = DisplayFields(rawValue: indexPath.row)!
-            cell.setupCell(rowValue: enumRow.getTitleValue(contact: viewModel.contact), editMode: editMode)
+            cell.setupCell(rowValue: enumRow.getTitleValue(contact: viewModel.contact), tag: indexPath.row, editMode: editMode)
         }
         return cell
     }
@@ -139,11 +168,33 @@ extension ContactDetailsController {
 }
 
 extension ContactDetailsController: ContactsViewModelDelegate {
+    func showAlert(message: String) {
+        showAlert(alertTitle: nil, alertMessage: message)
+    }
+
     func apiCall(inProgress: Bool) {
         inProgress ? showLoader() : hideLoader()
     }
 
     func reloadData() {
         tableView.reloadData()
+    }
+}
+
+extension ContactDetailsController: DetailCellDelegate {
+    func textChange(text: String?, tag: Int) {
+        guard let text = text else { return }
+        if let field: EditableFields = EditableFields(rawValue: tag) {
+            switch field {
+            case .firstName:
+                viewModel.firstNameTextChange(text: text)
+            case .lastName:
+                viewModel.lastNameTextChange(text: text)
+            case .mobile:
+                viewModel.mobileTextChange(text: text)
+            case .email:
+                viewModel.emailTextChange(text: text)
+            }
+        }
     }
 }

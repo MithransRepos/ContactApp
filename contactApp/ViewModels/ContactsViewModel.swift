@@ -9,6 +9,7 @@
 import Foundation
 
 protocol ContactsViewModelDelegate {
+    func showAlert(message: String)
     func apiCall(inProgress: Bool)
     func reloadData()
 }
@@ -55,7 +56,7 @@ extension ContactsViewModel {
                 guard let contacts = contacts else { return }
                 self.indexContacts(contacts: contacts)
             case .failure:
-                break
+                self.delegate?.showAlert(message: "Coundn't get contacts")
             }
         }
     }

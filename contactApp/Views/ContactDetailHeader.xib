@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="335"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cG-Ht-EUZ" customClass="GradientView" customModule="contactApp" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cG-Ht-EUZ">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="335"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yqF-MH-pXd">
@@ -151,11 +151,9 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="0.51174625880281688" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="4xB-yE-BSa" secondAttribute="bottom" constant="12" id="0Wt-B8-P2v"/>
                         <constraint firstItem="4xB-yE-BSa" firstAttribute="top" secondItem="bs0-By-YH6" secondAttribute="bottom" constant="12" id="3Hz-vw-9Si"/>
                         <constraint firstItem="bs0-By-YH6" firstAttribute="centerX" secondItem="3cG-Ht-EUZ" secondAttribute="centerX" id="BZu-0o-ITQ"/>
                         <constraint firstItem="yqF-MH-pXd" firstAttribute="top" secondItem="3cG-Ht-EUZ" secondAttribute="top" constant="84" id="Bst-IW-ycx"/>
-                        <constraint firstAttribute="height" constant="335" id="EhM-ZM-v8x"/>
                         <constraint firstItem="yqF-MH-pXd" firstAttribute="centerX" secondItem="3cG-Ht-EUZ" secondAttribute="centerX" id="H8c-NS-d9p"/>
                         <constraint firstItem="bs0-By-YH6" firstAttribute="leading" secondItem="3cG-Ht-EUZ" secondAttribute="leading" constant="30" id="QZc-fW-76R"/>
                         <constraint firstItem="4xB-yE-BSa" firstAttribute="leading" secondItem="3cG-Ht-EUZ" secondAttribute="leading" constant="44" id="eCA-9d-Y3F"/>
@@ -163,11 +161,6 @@
                         <constraint firstAttribute="trailing" secondItem="bs0-By-YH6" secondAttribute="trailing" constant="30" id="mCn-iZ-Q8r"/>
                         <constraint firstItem="bs0-By-YH6" firstAttribute="top" secondItem="yqF-MH-pXd" secondAttribute="bottom" constant="8" id="wre-dw-viP"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="gradientColor2">
-                            <color key="value" red="0.75830765850000004" green="1" blue="1" alpha="0.099031690140845077" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -187,6 +180,7 @@
                 <outlet property="favoriteView" destination="ybw-42-ZtT" id="8WA-i4-nGt"/>
                 <outlet property="messageView" destination="yDY-mw-Ck6" id="b1w-Wl-Nie"/>
                 <outlet property="nameLabel" destination="bs0-By-YH6" id="jQe-cQ-Tsh"/>
+                <outlet property="stackView" destination="4xB-yE-BSa" id="cyn-kl-k5g"/>
             </connections>
             <point key="canvasLocation" x="137.109375" y="-59.077598828696921"/>
         </view>

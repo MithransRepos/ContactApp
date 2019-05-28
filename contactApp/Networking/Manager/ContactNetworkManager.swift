@@ -22,6 +22,12 @@ class ContactNetworkManager {
         }, completion: completion)
     }
 
+    func addContact(params: Parameters, completion: @escaping (Result<Contact?, APIError>) -> Void) {
+        router.fetch(.addContact(params: params), decode: { json -> Contact? in
+            json as? Contact
+        }, completion: completion)
+    }
+
     func editContact(id: Int, params: Parameters, completion: @escaping (Result<Contact?, APIError>) -> Void) {
         router.fetch(.editContact(id: id, params: params), decode: { json -> Contact? in
             json as? Contact

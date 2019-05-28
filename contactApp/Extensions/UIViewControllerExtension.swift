@@ -38,6 +38,31 @@ extension UIViewController {
             return false
         }
     }
+
+    @objc func dismissControllerAnimatted() {
+        dismiss(animated: true, completion: nil)
+    }
+
+    @objc func dismissControllerNotAnimatted() {
+        dismissKeyboard()
+        navigationController?.dismiss(animated: false, completion: nil)
+    }
+
+    func hideKeyboardOnTouchOutside() {
+        let tapToDismiss = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapToDismiss.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapToDismiss)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    func showAlert(alertTitle title: String?, alertMessage message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { _ in }))
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
 extension UIViewController: StoryboardIdentifiable {}

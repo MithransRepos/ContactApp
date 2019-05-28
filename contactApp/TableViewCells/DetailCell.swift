@@ -8,18 +8,27 @@
 
 import UIKit
 
+protocol DetailCellDelegate {
+    func textChange(text: String?, tag: Int)
+}
+
 class DetailCell: BaseTableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var valueTextField: UITextField!
+    var delegate: DetailCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    func setupCell(rowValue: RowValue, editMode: Bool) {
+    func setupCell(rowValue: RowValue, tag: Int, editMode: Bool) {
         titleLabel.text = rowValue.title
         valueTextField.text = rowValue.value
+        valueTextField.tag = tag
         valueTextField.isUserInteractionEnabled = editMode
+    }
+
+    @IBAction func editingChanged(_ sender: UITextField) {
+        delegate?.textChange(text: sender.text, tag: sender.tag)
     }
 }

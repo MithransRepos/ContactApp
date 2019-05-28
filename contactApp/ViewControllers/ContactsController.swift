@@ -38,7 +38,8 @@ class ContactsController: UITableViewController {
 
     @objc private func addContact() {
         let contactDetailsController = ContactDetailsController.instantiate(mode: .add)
-        navigationController?.present(contactDetailsController, animated: true, completion: nil)
+        let navController = UINavigationController(rootViewController: contactDetailsController)
+        navigationController?.present(navController, animated: true, completion: nil)
     }
 }
 
@@ -88,6 +89,10 @@ extension ContactsController {
 }
 
 extension ContactsController: ContactsViewModelDelegate {
+    func showAlert(message: String) {
+        showAlert(alertTitle: nil, alertMessage: message)
+    }
+
     func apiCall(inProgress: Bool) {
         inProgress ? showLoader() : hideLoader()
     }
